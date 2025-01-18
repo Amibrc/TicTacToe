@@ -118,17 +118,17 @@ class TicTacToeGame:
         self.t_line.color("black")
         self.inv_goto(self.t_line, self.game_x, self.game_y - self.cell * 2)
         if winner == "X":
-            self.t_line.write("Хрестики виграли!", align="center", font=("Arial", 18, "normal"))
+            self.t_line.write("Crosses won!", align="center", font=("Arial", 18, "normal"))
         elif winner == "O":
-            self.t_line.write("Нолики виграли!", align="center", font=("Arial", 18, "normal"))
+            self.t_line.write("Tac-toe won!", align="center", font=("Arial", 18, "normal"))
         else:
-            self.t_line.write("Ничья!", align="center", font=("Arial", 18, "normal"))
+            self.t_line.write("Draw!", align="center", font=("Arial", 18, "normal"))
         self.t_line.color("green")
 
 
     def restart(self):
         for i in range(3, 0, -1):
-            print(f"Рестарт через: {i}")
+            print(f"Restart after: {i}")
             sleep(1)
 
         self.t_cross.clear()
@@ -141,7 +141,7 @@ class TicTacToeGame:
     def main_game(self):
         self.table()
         while True:
-            user_move = input("Введи номер: ").strip()
+            user_move = input("Enter the number: ").strip()
 
             if user_move in self.all_coordinates:
                 if self.turn == "X" and not self.game_table[int(user_move) - 1]:
@@ -164,5 +164,6 @@ class TicTacToeGame:
                     self.restart()
 
 
-game = TicTacToeGame(300, 0, 0)
-game.main_game()
+if __name__ == "__main__":
+    game = TicTacToeGame(300, 0, 0)
+    game.main_game()
